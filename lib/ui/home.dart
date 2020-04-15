@@ -66,6 +66,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
                 PizzaImageWidgets(),
+                RaiseButtonWidgets(),
               ],
             )));
   }
@@ -77,6 +78,38 @@ class PizzaImageWidgets extends StatelessWidget{
     AssetImage pizzaAsset = AssetImage("images/pizza1.png");
     Image image = Image(image: pizzaAsset, width: 400.0, height: 400.0,);
     return Container(child: image,);
+  }
+
+}
+
+class RaiseButtonWidgets extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    var button = Container(
+      margin: EdgeInsets.only(top: 50.0),
+      child: RaisedButton(
+        child: Text("Order your pizza!"),
+        color: Colors.lightGreen,
+        onPressed: () {
+          order(context);
+        },
+      ),
+    );
+
+    return button;
+  }
+
+  void order(BuildContext context){
+    var alert = AlertDialog(
+      title: Text("Order completed"),
+      content: Text("Thanks for your order"),
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return alert;
+      }
+    );
   }
 
 }
