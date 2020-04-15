@@ -64,8 +64,19 @@ class Home extends StatelessWidget {
                       textDirection: TextDirection.ltr,
                     ))
                   ],
-                )
+                ),
+                PizzaImageWidgets(),
               ],
             )));
   }
+}
+
+class PizzaImageWidgets extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    AssetImage pizzaAsset = AssetImage("images/pizza1.png");
+    Image image = Image(image: pizzaAsset, width: 400.0, height: 400.0,);
+    return Container(child: image,);
+  }
+
 }
